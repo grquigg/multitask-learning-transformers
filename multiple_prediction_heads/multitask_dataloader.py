@@ -61,11 +61,12 @@ class MultitaskDataset(datasets.GeneratorBasedBuilder):
         """This function returns the examples in the raw (text) form."""
         logger.info("generating examples from = %s", filepath)
         data = None
-        if ".tsv" in filepath:
-            data = pd.read_csv(filepath, sep="\t")
+        print(filepath)
+        if ".tsv" in filepath[0]:
+            data = pd.read_csv(filepath[0], sep="\t")
         else:
-            data = pd.read_csv(filepath)
-
+            #this is where the break occurs
+            data = pd.read_csv(filepath[0])
         for idx, row in data.iterrows():
             yield row["id"], {
                 "doc": row["doc"],

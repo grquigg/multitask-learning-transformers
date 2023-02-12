@@ -61,7 +61,7 @@ def main():
             },
         ),
     }
-
+    print("Break point")
     for task_name, dataset in dataset_dict.items():
         print(task_name)
         print(dataset_dict[task_name]["train"][0])
